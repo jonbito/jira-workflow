@@ -191,6 +191,21 @@ Think deeply about breaking down this work from page $ARGUMENTS. Consider all te
 
 **Establish issue relationships:**
 
+If more than 3 issues need to be created, create a JIRA Epic to organize the work. Use this template when creating the Epic:
+
+**Use this title pattern:** `{Application}: {Short Description}`
+
+**Use this body pattern:**
+
+```markdown
+**Documentation:** {confluence_doc_link}
+**Estimated Effort:** {S/M/L} ({timeframe})
+
+## Description
+
+{Clear description of what needs to be implemented}
+```
+
 1. **Create parent-child relationships**: Use JIRA's sub-task and Epic functionality when creating each task
 2. **Link in descriptions**: Include "Documentation: {confluence_doc_link}" in each task description
 3. **Cross-reference tasks**: Link related tasks using "Depends on #issue" or "Blocks #issue"

@@ -77,8 +77,7 @@ Think deeply about implementing this task issue $ARGUMENTS. Consider the technic
 
 **Use Git commands to create a feature branch:**
 
-1. Create a new branch with naming pattern: `task/{issue-key}-{brief-description}`
-2. Push the branch and set upstream tracking
+1. Create a new branch with naming pattern: `{issue-key}-{brief-description}`
 
 ## Step 6: Design Test Strategy
 
@@ -186,10 +185,11 @@ Think deeply about implementing this task issue $ARGUMENTS. Consider the technic
 
 ## Step 12: Complete the Task
 
-**Use the Atlassian tool to update task status:**
+**Use the Atlassian tool to update the issue comment:**
 
 1. Add a completion comment summarizing what was implemented
 2. Update the task issue description with implementation details if needed
+3. Do not update the issue status - leave it in progress
 
 **Document your completion:**
 
