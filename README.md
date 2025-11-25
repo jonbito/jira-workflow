@@ -42,6 +42,16 @@ This project provides a set of custom Claude Code slash commands that enable sys
   - Follows Keep a Changelog conventions
   - Supports all standard change types
 
+- **`/do:commit`** - Creates conventional commits for staged changes
+  - Analyzes git diff and suggests 3-5 commit message options
+  - Follows conventional commit format (type(scope): description)
+  - Ensures consistent commit message standards
+
+- **`/do:pr`** - Creates pull requests with structured format
+  - Links to JIRA task and Confluence documentation
+  - Includes detailed summary and file changes
+  - Provides test plan and context
+
 ## Prerequisites
 
 Before using this workflow system, you need:
@@ -169,7 +179,33 @@ This implements the task:
 - Runs tests and validation
 - Updates documentation
 
-#### 5. Track Changes
+#### 5. Commit Changes
+
+```
+/do:commit
+```
+
+This creates a conventional commit:
+
+- Analyzes your staged changes
+- Suggests 3-5 commit message options
+- Formats according to conventional commits standard
+- Creates the commit with your selected option
+
+#### 6. Create Pull Request
+
+```
+/do:pr
+```
+
+This creates a structured PR:
+
+- Links to JIRA task and Confluence documentation
+- Includes summary of changes
+- Lists modified and new files
+- Provides test plan and context
+
+#### 7. Track Changes
 
 ```
 /do:changelog 1.2.0 added user activity tracking
@@ -183,7 +219,7 @@ For larger initiatives, start with a comprehensive PRD:
 /plan:prd Multi-tenant user management system
 ```
 
-Then follow steps 3-5 above.
+Then follow steps 3-7 above.
 
 ## Command Reference
 
@@ -198,10 +234,12 @@ Then follow steps 3-5 above.
 
 ### Execution Commands
 
-| Command         | Purpose             | Input                      | Output                  |
-| --------------- | ------------------- | -------------------------- | ----------------------- |
-| `/do:task`      | Implement JIRA task | Issue key (e.g., PROJ-123) | Complete implementation |
-| `/do:changelog` | Update changelog    | Version, type, message     | Updated CHANGELOG.md    |
+| Command         | Purpose                    | Input                      | Output                  |
+| --------------- | -------------------------- | -------------------------- | ----------------------- |
+| `/do:task`      | Implement JIRA task        | Issue key (e.g., PROJ-123) | Complete implementation |
+| `/do:changelog` | Update changelog           | Version, type, message     | Updated CHANGELOG.md    |
+| `/do:commit`    | Create conventional commit | Staged changes             | Git commit              |
+| `/do:pr`        | Create pull request        | Current branch             | GitHub PR               |
 
 ## Workflow Benefits
 
@@ -220,7 +258,9 @@ jira-workflow/
 │   ├── commands/
 │   │   ├── do/
 │   │   │   ├── task.md          # Execute JIRA task
-│   │   │   └── changelog.md     # Update changelog
+│   │   │   ├── changelog.md     # Update changelog
+│   │   │   ├── commit.md        # Create conventional commit
+│   │   │   └── pr.md            # Create pull request
 │   │   └── plan/
 │   │       ├── brainstorm.md    # Validate ideas
 │   │       ├── prd.md           # Create PRD
